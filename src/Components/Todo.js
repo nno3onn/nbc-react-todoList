@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+  width: 300px;
   padding: 20px;
   border: 1px solid #ddd;
   background-color: ${(props) => (props.isDone ? "#f9f8f3" : "#fff")};
-  border-top: 10px solid ${(props) => (props.isDone ? "#f19280" : "#35d282")}; 
-  width: 300px;
+  border-top: 10px solid ${(props) => (props.isDone ? "#f19280" : "#35d282")};
 `;
 const Content = styled.div`
   margin-bottom: 20px;

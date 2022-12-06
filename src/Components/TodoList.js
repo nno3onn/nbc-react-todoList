@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { v4 } from "uuid";
 import Todo from "./Todo";
 
 const TodoWrapper = styled.div`
@@ -29,7 +30,7 @@ const TodoList = ({ todoList, setTodoList }) => {
         {todoList
           .filter((v) => !v.isDone)
           .map((data, i) => (
-            <Todo key={`not-${i}`} data={data} handleChangeIsDone={handleChangeIsDone} handleDeleteTodo={handleDeleteTodo} />
+            <Todo key={v4()} data={data} handleChangeIsDone={handleChangeIsDone} handleDeleteTodo={handleDeleteTodo} />
           ))}
       </TodoWrapper>
       <h2>Complete</h2>
@@ -37,7 +38,7 @@ const TodoList = ({ todoList, setTodoList }) => {
         {todoList
           .filter((v) => v.isDone)
           .map((data, i) => (
-            <Todo key={`complete-${i}`} data={data} handleChangeIsDone={handleChangeIsDone} handleDeleteTodo={handleDeleteTodo} />
+            <Todo key={v4()} data={data} handleChangeIsDone={handleChangeIsDone} handleDeleteTodo={handleDeleteTodo} />
           ))}
       </TodoWrapper>
     </>
