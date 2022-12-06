@@ -24,7 +24,7 @@ const TodoList = ({ todoList, setTodoList }) => {
 
   return (
     <>
-      <h2>Writing</h2>
+      <h2>Working</h2>
       <TodoWrapper>
         {todoList
           .filter((v) => !v.isDone)
