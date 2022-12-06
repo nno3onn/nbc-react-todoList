@@ -39,9 +39,9 @@ const Inputs = ({ todoList, setTodoList }) => {
   const handleCreate = () => {
     const title = titleRef.current.value;
     const content = contentRef.current.value;
-    // if (!title || !content) {
-    //   return alert("모두 입력해주세요");
-    // }
+    if (!title || !content) {
+      return alert("모두 입력해주세요");
+    }
     // if (title.length > 35 || content.length > 35) {
     //   return alert("35자 이내로 작성해주세요");
     // }
