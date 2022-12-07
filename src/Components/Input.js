@@ -50,7 +50,7 @@ const Inputs = () => {
     //   return alert("35자 이내로 작성해주세요");
     // }
 
-    dispatch(createTodo({ id: `todo-${todoList.length + 1}`, title, content, isDone: false }));
+    dispatch(createTodo({ id: Date.now(), title, content, isDone: false }));
     titleRef.current.value = "";
     contentRef.current.value = "";
   };

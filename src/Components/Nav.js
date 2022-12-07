@@ -11,6 +11,6 @@ const Container = styled.div`
   font-size: 24px;
 `;
 
-const Nav = () => <Container>React Todo List</Container>;
+const Nav = () => <Container> React Todo List</Container>;
 
 export default Nav;

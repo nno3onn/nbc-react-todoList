@@ -38,8 +38,10 @@ const DeletBtn = styled(Button)`
 
 const Todo = ({ data: { title, content, id, isDone }, handleChangeIsDone, handleDeleteTodo }) => (
   <Container isDone={isDone}>
-    <h3>{title}</h3>
-    <Content>{content}</Content>
+    <Link to={id.toString()}>
+      <h3>{title}</h3>
+      <Content>{content}</Content>
+    </Link>
     <ButtonWrapper>
       <DoneBtn isDone={isDone} onClick={() => handleChangeIsDone(id)}>
         {isDone ? "취소" : "완료"}

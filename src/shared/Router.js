@@ -6,7 +6,7 @@ const Router = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Main />} />
-      <Route path="todo/:id" element={<TodoPage />} />
+      <Route path="/:id" element={<TodoPage />} />
     </Routes>
   </BrowserRouter>
 );
