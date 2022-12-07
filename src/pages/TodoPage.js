@@ -45,6 +45,7 @@ const TodoPage = () => {
           <BackArrow src="/arrow.png" width={24} height={24} onClick={() => window.history.back()} />
         </Header>
         <Content>
+          <p style={{ marginBottom: 30 }}>id: {id}</p>
           <h2>{title}</h2>
           <ContentText>{content}</ContentText>
         </Content>
