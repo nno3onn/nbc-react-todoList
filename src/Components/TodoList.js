@@ -1,5 +1,7 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { v4 } from "uuid";
+import { deleteTodo, updateTodo } from "../redux/modules/todo";
 import Todo from "./Todo";
 
 const TodoWrapper = styled.div`
@@ -9,19 +11,12 @@ const TodoWrapper = styled.div`
   margin-bottom: 50px;
 `;
 
-const TodoList = ({ todoList, setTodoList }) => {
-  const handleChangeIsDone = (id) => {
-    const newTodoList = todoList.map((todo) => {
-      if (todo.id === id) return { ...todo, isDone: !todo.isDone };
-      return todo;
-    });
-    setTodoList([...newTodoList]);
-  };
+const TodoList = () => {
+  const dispatch = useDispatch();
+  const todoList = useSelector((state) => state.todo);
 
-  const handleDeleteTodo = (id) => {
-    const newTodoList = todoList.filter((todo) => todo.id !== id);
-    setTodoList([...newTodoList]);
-  };
+  const handleChangeIsDone = (id) => dispatch(updateTodo(id));
+  const handleDeleteTodo = (id) => dispatch(deleteTodo(id));
 
   return (
     <>
@@ -29,7 +24,7 @@ const TodoList = ({ todoList, setTodoList }) => {
       <TodoWrapper>
         {todoList
           .filter((v) => !v.isDone)
-          .map((data, i) => (
+          .map((data) => (
             <Todo key={v4()} data={data} handleChangeIsDone={handleChangeIsDone} handleDeleteTodo={handleDeleteTodo} />
           ))}
       </TodoWrapper>
@@ -37,7 +32,7 @@ const TodoList = ({ todoList, setTodoList }) => {
       <TodoWrapper>
         {todoList
           .filter((v) => v.isDone)
-          .map((data, i) => (
+          .map((data) => (
             <Todo key={v4()} data={data} handleChangeIsDone={handleChangeIsDone} handleDeleteTodo={handleDeleteTodo} />
           ))}
       </TodoWrapper>

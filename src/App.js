@@ -1,20 +1,12 @@
-import styled from "styled-components";
 import "./App.css";
-import Nav from "./Components/Nav";
-import Main from "./pages/Main";
-
-const Container = styled.div`
-  min-width: 800px;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
+import Layout from "./shared/Layout";
+import Router from "./shared/Router";
 
 function App() {
   return (
-    <Container>
-      <Nav />
-      <Main />
-    </Container>
+    <Layout>
+      <Router />
+    </Layout>
   );
 }
 

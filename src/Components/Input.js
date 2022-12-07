@@ -1,5 +1,7 @@
 import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { createTodo } from "../redux/modules/todo";
 
 const Container = styled.div`
   background-color: #e1fce9;
@@ -32,7 +34,9 @@ const Input = styled.input`
   padding: 5px 20px;
 `;
 
-const Inputs = ({ todoList, setTodoList }) => {
+const Inputs = () => {
+  const dispatch = useDispatch();
+  const todoList = useSelector((state) => state.todo);
   const titleRef = useRef();
   const contentRef = useRef();
 
@@ -45,9 +49,10 @@ const Inputs = ({ todoList, setTodoList }) => {
     // if (title.length > 35 || content.length > 35) {
     //   return alert("35자 이내로 작성해주세요");
     // }
+
+    dispatch(createTodo({ id: `todo-${todoList.length + 1}`, title, content, isDone: false }));
     titleRef.current.value = "";
     contentRef.current.value = "";
-    setTodoList([...todoList, { id: todoList.length + 1, title, content, isDone: false }]);
   };
 
   return (

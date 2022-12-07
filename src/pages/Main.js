@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import Inputs from "../Components/Input";
-import TodoList from "../Components/TodoList";
+import React from "react";
+import Inputs from "../components/Input";
+import TodoList from "../components/TodoList";
 
 const Main = () => {
-  const [todoList, setTodoList] = useState([]);
-
   return (
     <>
-      <Inputs todoList={todoList} setTodoList={setTodoList} />
-      <TodoList todoList={todoList} setTodoList={setTodoList} />
+      <Inputs />
+      <TodoList />
     </>
   );
 };
