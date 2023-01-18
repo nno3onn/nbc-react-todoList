@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const Nav = (): JSX.Element => <Container> React Todo List</Container>;
+
 const Container = styled.div`
   width: 100%;
   background-color: #45c4b0;
@@ -10,7 +12,5 @@ const Container = styled.div`
   font-weight: bold;
   font-size: 24px;
 `;
-
-const Nav = () => <Container> React Todo List</Container>;
 
 export default Nav;

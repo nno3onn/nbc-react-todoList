@@ -1,7 +1,27 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { TodoType } from "../redux/modules/todo";
 
-const Container = styled.div`
+interface PropsType {
+  data: TodoType;
+  handleChangeIsDone: Function;
+  handleDeleteTodo: Function;
+}
+
+const Todo = ({ data: { title, content, id, isDone }, handleChangeIsDone, handleDeleteTodo }: PropsType): JSX.Element => (
+  <Container isDone={isDone}>
+    <Link to={id.toString()}>
+      <h3>{title}</h3>
+      <Content>{content}</Content>
+    </Link>
+    <ButtonWrapper>
+      <DoneBtn onClick={() => handleChangeIsDone(id)}>{isDone ? "취소" : "완료"}</DoneBtn>
+      <DeletBtn onClick={() => handleDeleteTodo(id)}>삭제</DeletBtn>
+    </ButtonWrapper>
+  </Container>
+);
+
+const Container = styled.div<{ isDone: boolean }>`
   width: 300px;
   padding: 20px;
   border: 1px solid #ddd;
@@ -35,22 +55,5 @@ const DoneBtn = styled(Button)`
 const DeletBtn = styled(Button)`
   background-color: #ddd;
 `;
-
-const Todo = ({ data: { title, content, id, isDone }, handleChangeIsDone, handleDeleteTodo }) => (
-  <Container isDone={isDone}>
-    <Link to={id.toString()}>
-      <h3>{title}</h3>
-      <Content>{content}</Content>
-    </Link>
-    <ButtonWrapper>
-      <DoneBtn isDone={isDone} onClick={() => handleChangeIsDone(id)}>
-        {isDone ? "취소" : "완료"}
-      </DoneBtn>
-      <DeletBtn isDone={isDone} onClick={() => handleDeleteTodo(id)}>
-        삭제
-      </DeletBtn>
-    </ButtonWrapper>
-  </Container>
-);
 
 export default Todo;

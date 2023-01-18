@@ -3,16 +3,23 @@ const CREATE_TODO = "CREATE_TODO";
 const UPDATE_TODO = "UPDATE_TODO";
 const DELETE_TODO = "DELETE_TODO";
 
+export interface TodoType {
+  id: number;
+  isDone: boolean;
+  title: string;
+  content: string;
+}
+
 // action creator
-export const createTodo = (payload) => ({ type: CREATE_TODO, payload });
-export const updateTodo = (payload) => ({ type: UPDATE_TODO, payload });
-export const deleteTodo = (payload) => ({ type: DELETE_TODO, payload });
+export const createTodo = (payload: TodoType) => ({ type: CREATE_TODO, payload });
+export const updateTodo = (payload: number) => ({ type: UPDATE_TODO, payload });
+export const deleteTodo = (payload: number) => ({ type: DELETE_TODO, payload });
 
 // initialState
-const initialState = [];
+const initialState: TodoType[] = [];
 
 // reducer
-const todo = (state = initialState, action) => {
+const todo = (state = initialState, action: any) => {
   const { type, payload } = action;
 
   switch (type) {

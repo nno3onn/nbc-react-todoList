@@ -2,6 +2,32 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
+type Todo = {
+  todoId: number;
+};
+
+const TodoPage = (): JSX.Element => {
+  const params = useParams();
+  const { id } = params;
+  const todo = useSelector(({ todo }: any) => todo).find(({ todoId }: Todo) => id && todoId === +id);
+  const { title, content } = todo;
+
+  return (
+    <Container>
+      <Wrapper>
+        <Header>
+          <BackArrow src="/arrow.png" width={24} height={24} onClick={() => window.history.back()} />
+        </Header>
+        <Content>
+          <p style={{ marginBottom: 30 }}>id: {id}</p>
+          <h2>{title}</h2>
+          <ContentText>{content}</ContentText>
+        </Content>
+      </Wrapper>
+    </Container>
+  );
+};
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -31,27 +57,5 @@ const Content = styled.div`
   padding: 30px;
 `;
 const ContentText = styled.div``;
-
-const TodoPage = () => {
-  const params = useParams();
-  const { id } = params;
-  const todo = useSelector((state) => state.todo).find((todo) => todo.id === +id);
-  const { title, content } = todo;
-
-  return (
-    <Container>
-      <Wrapper>
-        <Header>
-          <BackArrow src="/arrow.png" width={24} height={24} onClick={() => window.history.back()} />
-        </Header>
-        <Content>
-          <p style={{ marginBottom: 30 }}>id: {id}</p>
-          <h2>{title}</h2>
-          <ContentText>{content}</ContentText>
-        </Content>
-      </Wrapper>
-    </Container>
-  );
-};
 
 export default TodoPage;
