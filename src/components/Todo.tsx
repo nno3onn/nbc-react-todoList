@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { TodoType } from "../redux/modules/todo";
 
-interface PropsType {
+interface TodoProps {
   data: TodoType;
   handleChangeIsDone: Function;
   handleDeleteTodo: Function;
 }
 
-const Todo = ({ data: { title, content, id, isDone }, handleChangeIsDone, handleDeleteTodo }: PropsType): JSX.Element => (
+const Todo = ({ data: { title, content, id, isDone }, handleChangeIsDone, handleDeleteTodo }: TodoProps): JSX.Element => (
   <Container isDone={isDone}>
     <Link to={id.toString()}>
       <h3>{title}</h3>

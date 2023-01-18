@@ -2,11 +2,11 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 import Nav from "../components/Nav";
 
-interface Props {
+interface LayoutProps {
   children?: ReactNode;
 }
 
-const Layout = ({ children }: Props): JSX.Element => (
+const Layout = ({ children }: LayoutProps): JSX.Element => (
   <Container>
     <Nav />
     {children}

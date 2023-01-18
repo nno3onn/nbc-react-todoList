@@ -2,14 +2,10 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-type Todo = {
-  todoId: number;
-};
+const TodoPage = () => {
+  const { id } = useParams();
+  const todo = useSelector(({ todo }: any) => todo).find(({ todoId }: any) => id && todoId === +id);
 
-const TodoPage = (): JSX.Element => {
-  const params = useParams();
-  const { id } = params;
-  const todo = useSelector(({ todo }: any) => todo).find(({ todoId }: Todo) => id && todoId === +id);
   const { title, content } = todo;
 
   return (

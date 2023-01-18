@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
-import { deleteTodo, TodoType, updateTodo } from "../redux/modules/todo";
+import { deleteTodo, updateTodo } from "../redux/modules/todo";
 import Todo from "./Todo";
+
+import { RootState } from "../redux/config/configStore";
 
 const TodoWrapper = styled.div`
   display: grid;
@@ -13,7 +15,7 @@ const TodoWrapper = styled.div`
 
 const TodoList = (): JSX.Element => {
   const dispatch = useDispatch();
-  const todoList = useSelector(({ todo }: any) => todo);
+  const todoList: TodoType[] = useSelector((state: RootState) => state.todo);
 
   const handleChangeIsDone = (id: number) => dispatch(updateTodo(id));
   const handleDeleteTodo = (id: number) => dispatch(deleteTodo(id));
