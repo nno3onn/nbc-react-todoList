@@ -1,26 +1,25 @@
 # React 숙련 주차 개인 과제 Lv. 1
 
-<aside>
-# 💡 Goal : My Todo List 만들기
 
-</aside>
+## 💡 Goal : My Todo List 만들기
 
 - React 입문 주차 개인 과제를 `react-router-dom`, `styled-components`, `redux`를 사용해서 My Todo List 를 다시 만들어봅니다.
-
-<aside>
-# ⚙ features : 구현해야 할 기능이에요.
-
-</aside>
+ 
+ <br>
+ 
+## ⚙ features : 구현해야 할 기능이에요.
+ 
 
 - Create Todo
 - Read Todos, Todo
 - Update Todo
 - Delete Todo
+ 
+<br>
+<br>
 
-<aside>
-# 📌 Requirement : 과제에 요구되는 사항이에요.
-
-</aside>
+## 📌 Requirement : 과제에 요구되는 사항이에요.
+ 
 
 - 공통
     - **todos 데이터는 리덕스를 사용해서 전역으로 상태를 관리합니다.**
@@ -44,11 +43,13 @@
 - 제한사항
     - map을 사용할 때 반드시 key을 넣어야 하며, `map` 의 index를 사용을 금지합니다. 이것을 금지하는 이유는 강의에 다루었습니다.
     - Todo Id 생성 시 `todos.length` 사용해서 생성하지 않습니다. `todos.length` 을 사용해서 id 생성 시 발생할 수 있는 문제점에 대해 고민해보시길 바랍니다.
-
-<aside>
-# 🔔 notice: 과제와 관련된 안내 사항이에요
-
-</aside>
+ 
+ 
+ <br>
+ <br>
+ 
+## 🔔 notice: 과제와 관련된 안내 사항이에요
+ 
 
 - todos 모듈의 `initialState` 는 있어도 되고, 없어도 됩니다. 예시 영상에서는 예시의 편의상 Todo가 `initialState`로 존재합니다
     
@@ -69,16 +70,16 @@
     ]
     ```
     
-
-<aside>
-# 📌 Hint : 과제가 어려우신가요?
-
-</aside>
+    
+    <br>
+    <br>
+ 
+## 📌 Hint : 과제가 어려우신가요?
+ 
 
 - 힌트
     - 예시에서 생성한 action creator는 총 4개 입니다.
         - `addTodo`, `deleteTodo`, `toggleStatusTodo`, `getTodoById`
     - 중앙 정렬은 flex를 사용했습니다.
 ☝ 제출방식 : Vercel로 배포하여 IP주소를 제출해주세요
-
-</aside>
+ 
